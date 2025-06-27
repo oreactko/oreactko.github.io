@@ -112,6 +112,12 @@
       margin-right: 8px;
       vertical-align: middle;
     }
+
+    button:hover {
+        box-shadow: 0 0 15px #00ffffaa, 0 0 30px #00ffff55;
+        transform: scale(1.05); ;
+    }
+
   </style>
 </head>
 <body>
@@ -123,21 +129,30 @@
   </header>
 
   <nav>
-    <button onclick="openTab('about', this)" class="active-tab">About Me</button>
-    <button onclick="openTab('github', this)">GitHub</button>
+    <button onclick="openTab('home', this)" class="active-tab">Home</button>
+    <button onclick="openTab('about', this)">About Me</button>
     <button onclick="openTab('contact', this)">Contact</button>
   </nav>
+  <div id="home" class="tab-content active">
+    <h2>🏠 Home</h2>
+    <p>Chào mừng bạn đến với trang cá nhân của OReactko! Nơi tôi chia sẻ đam mê lập trình và anime.</p>
+    <div style="text-align: center; margin-top: 30px;">
+        <button onclick="goToAboutMe()"
+            style="padding: 12px 25px; font-weight: bold; background-color: #00ffff22; color: #00ffff; border: 2px solid #00ffff88; border-radius: 10px; cursor: pointer; transition: 0.3s ease;">
+            👉 Xem About Me
+        </button>
 
-  <div id="about" class="tab-content active">
+        <button onclick="goToContact()" 
+            style="padding: 12px 25px; font-weight: bold; background-color: #00ffff22; color: #00ffff; border: 2px solid #00ffff88; border-radius: 10px; cursor: pointer; transition: 0.3s ease;">
+            📞 Liên hệ
+        </button>
+    </div>
+  </div>
+  <div id="about" class="tab-content">
     <h2>👾 About Me</h2>
     <p>Yo! Tôi là <strong>OReactko</strong>, tên thật là Sơn, 11 tuổi, đam mê lập trình, anime và các tựa game như <em>Genshin Impact, Honkai Impact 3rd và Valorant</em>.</p>
     <p>Thích code mấy thứ độc lạ, và cũng hơi nghiện tiếng Nhật tí 🤣.</p>
   </div>
-
-  <div id="github" class="tab-content">
-    <h2>🌐 GitHub</h2>
-    <p><img class="icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="20"> 
-    <a href="https://github.com/OReactko" target="_blank">github.com/OReactko</a></p>
   </div>
 
   <div id="contact" class="tab-content">
@@ -146,6 +161,8 @@
       Email: <a href="mailto:son682014@gmail.com">son682014@gmail.com</a></p>
     <p><img class="icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" width="20">
       Discord: OReactko#1234</p>
+    <p><img class="icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="20"> 
+    <a href="https://github.com/OReactko" target="_blank">github.com/OReactko</a></p>
   </div>
 
   <script>
@@ -154,6 +171,14 @@
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active-tab'));
       document.getElementById(tabId).classList.add('active');
       btn.classList.add('active-tab');
+    }
+
+    function goToAboutMe() {
+        document.querySelector('button[onclick*="about"]').click();
+    }
+
+    function goToContact() {
+        document.querySelector('button[onclick*="contact"]').click();
     }
   </script>
 
